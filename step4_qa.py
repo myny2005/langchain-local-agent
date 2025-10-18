@@ -5,7 +5,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from settings import load_config, persist_path_for_url
 import warnings
+
 warnings.filterwarnings("ignore")
+
 
 def load_vectorstore():
     cfg = load_config()
