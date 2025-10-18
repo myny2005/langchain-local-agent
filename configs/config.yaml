@@ -1,0 +1,20 @@
+article:
+  url: "https://www.infracloud.io/blogs/vector-databases-beginners-guide/"
+  cookies_path: null        # optional: "cookies.json" (requests-format),if legal login needed
+  use_browser: false        # if true, uses Playwright to fetch the page (for JS-heavy sites)
+
+models:
+  llm: "mistral"
+  embeddings: "nomic-embed-text"
+
+index:
+  base_dir: "./chroma_db"   # where to store the vector DB
+  chunk_size: 1000
+  chunk_overlap: 150
+
+retrieval:
+  k: 4
+
+generation:
+  sample_k: 8               # how many chunks to sample from the retrieved ones
+  n_questions: 1            # number of questions to generate
