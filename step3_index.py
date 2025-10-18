@@ -28,7 +28,7 @@ def index_url():
 
     print(f"[3/3] Creating embeddings and writing into Chroma ({persist_dir})")
     embeddings = OllamaEmbeddings(model=emb_model)
-    metadatas: List[Dict[str, Any]] = [
+    metadatas: List[Dict[str, Any]] = [ # type: ignore[annotation-unchecked]
         {"source": url, "chunk": i} for i in range(len(chunks))
     ]
 
