@@ -1,5 +1,5 @@
 article:
-  url: "https://www.infracloud.io/blogs/vector-databases-beginners-guide/"
+  url: https://www.theguardian.com/world/2025/oct/22/zelenskyy-calls-trumps-proposal-to-freeze-war-at-current-frontlines-good-compromise
   cookies_path: null        # optional: "cookies.json" (requests-format),if legal login needed
   use_browser: false        # if true, uses Playwright to fetch the page (for JS-heavy sites)
 
