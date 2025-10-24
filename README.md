@@ -15,19 +15,22 @@ A small pipeline that ingests articles, chunks them, builds a local vector index
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt  # or `uv pip sync`
 
-# 2) (Optional) Set a custom config path
+# 2a) (Optional) Set a custom config path and API key if using OpenAI models
 export LC_CONFIG=configs/config.yaml
+export OPENAI_API_KEY="your_api_key_here"
+
+# 2b) Setup your configs/config.yaml
 
 # 3) Fetch + build index
-python step1_fetch.py --url "https://example.com/article"
-python step2_split.py
-python step3_index.py
+python src/step1_fetch.py --url "https://example.com/article"
+python src/step2_split.py
+python src/step3_index.py
 
 # 4) Ask questions
-python step4_qa.py --question "What is the main claim?"
+python src/step4_qa.py --question "What is the main claim?"
 
 # 5) Run automated QA/eval
-python step5_autoqa.py
+python src/step5_autoqa.py
 ```
 
 ## **Install Ollama**
