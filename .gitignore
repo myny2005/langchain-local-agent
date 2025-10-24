@@ -16,3 +16,6 @@ data/
 *.env
 .secrets/
 cookies.json
+
+# additional
+learn/
