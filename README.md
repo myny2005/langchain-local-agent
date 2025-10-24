@@ -19,7 +19,7 @@ pip install -r requirements.txt  # or `uv pip sync`
 export LC_CONFIG=configs/config.yaml
 export OPENAI_API_KEY="your_api_key_here"
 
-# 2b) Setup your configs/config.yaml
+# 2b) Set up your configs/config.yaml
 
 # 3) Fetch + build index
 python src/step1_fetch.py --url "https://example.com/article"
