@@ -32,9 +32,7 @@ if __name__ == "__main__":
     vs = load_vectorstore()
     qa = build_qa_chain(vs, k=cfg["retrieval"]["k"])
 
-    question = generate_one_question(
-        vs, k_context=cfg["generation"]["sample_k"]
-    )
+    question = generate_one_question(vs, k_context=cfg["generation"]["sample_k"])
     answer = qa.invoke(question).strip()
 
     print("\n❓ Auto-generated question:")
