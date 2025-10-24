@@ -8,7 +8,7 @@ from settings import load_config
 
 def generate_one_question(vs, model_name: str, k_context: int) -> str:
     retriever = vs.as_retriever(search_kwargs={"k": k_context})
-    sample_docs = retriever.get_relevant_documents("global overview")
+    sample_docs = retriever.invoke("global overview")
     sample_context = "\n\n".join(d.page_content for d in sample_docs)
 
     llm = ChatOllama(model=model_name, temperature=0.2)
