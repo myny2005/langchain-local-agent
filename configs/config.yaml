@@ -4,7 +4,7 @@ article:
   use_browser: false        # if true, uses Playwright to fetch the page (for JS-heavy sites)
 
 models:
-  provider: "ollama"
+  provider: "openai"
 
   openai:
     llm: "gpt-4o"
