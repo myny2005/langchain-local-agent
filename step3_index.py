@@ -1,11 +1,11 @@
 # step3_index.py
 from typing import List, Dict, Any
-from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
 from step1_fetch import fetch_url  # or fetch_url_robust if needed
 from step2_split import chunk_text
 from settings import load_config, persist_path_for_url, load_cookies
+from model_factory import embeddings
 
 
 def index_url():
@@ -16,7 +16,6 @@ def index_url():
     base_dir = cfg["index"]["base_dir"]
     chunk_size = cfg["index"]["chunk_size"]
     chunk_overlap = cfg["index"]["chunk_overlap"]
-    emb_model = cfg["models"]["embeddings"]
 
     persist_dir = persist_path_for_url(base_dir, url)
 
@@ -27,7 +26,6 @@ def index_url():
     chunks = chunk_text(text, chunk_size=chunk_size, overlap=chunk_overlap)
 
     print(f"[3/3] Creating embeddings and writing into Chroma ({persist_dir})")
-    embeddings = OllamaEmbeddings(model=emb_model)
     metadatas: List[Dict[str, Any]] = [  # type: ignore[annotation-unchecked]
         {"source": url, "chunk": i} for i in range(len(chunks))
     ]

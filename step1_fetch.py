@@ -17,6 +17,6 @@ def fetch_url(url: str) -> str:
 
 
 if __name__ == "__main__":
-    example_url = "https://www.theguardian.com/world/2025/oct/22/zelenskyy-calls-trumps-proposal-to-freeze-war-at-current-frontlines-good-compromise"  # random Guardian article
+    example_url = "https://www.theguardian.com/sport/2025/oct/24/the-nba-jumped-into-bed-with-gambling-now-the-league-is-getting-its-due"  # random Guardian article
     n = 10000
     print(fetch_url(example_url)[:n])  # show the n chars

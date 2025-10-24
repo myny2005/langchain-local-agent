@@ -1,11 +1,18 @@
 article:
-  url: https://www.theguardian.com/us-news/2025/oct/24/trump-asia-tour-key-questions-xi-jinping-china-japan-south-korea-malaysia
+  url: "https://www.theguardian.com/sport/2025/oct/24/the-nba-jumped-into-bed-with-gambling-now-the-league-is-getting-its-due"
   cookies_path: null        # optional: "cookies.json" (requests-format),if legal login needed
   use_browser: false        # if true, uses Playwright to fetch the page (for JS-heavy sites)
 
 models:
-  llm: "mistral"
-  embeddings: "nomic-embed-text"
+  provider: "ollama"
+
+  openai:
+    llm: "gpt-4o"
+    embeddings: "text-embedding-3-small"
+
+  ollama:
+    llm: "mistral"
+    embeddings: "nomic-embed-text"
 
 index:
   base_dir: "./chroma_db"   # where to store the vector DB

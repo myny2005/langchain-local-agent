@@ -13,7 +13,7 @@ def chunk_text(text: str, chunk_size=1000, overlap=150):
 
 
 if __name__ == "__main__":
-    example_url = "https://www.theguardian.com/world/2025/oct/22/zelenskyy-calls-trumps-proposal-to-freeze-war-at-current-frontlines-good-compromise"  # random Guardian article
+    example_url = "https://www.theguardian.com/sport/2025/oct/24/the-nba-jumped-into-bed-with-gambling-now-the-league-is-getting-its-due"  # random Guardian article
     text = fetch_url(example_url)
     chunks = chunk_text(text)
 

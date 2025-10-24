@@ -1,17 +1,16 @@
-from langchain_ollama import ChatOllama
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 from step4_qa import load_vectorstore, build_qa_chain
 from settings import load_config
+from model_factory import llm
 
 
-def generate_one_question(vs, model_name: str, k_context: int) -> str:
+def generate_one_question(vs, k_context: int) -> str:
     retriever = vs.as_retriever(search_kwargs={"k": k_context})
     sample_docs = retriever.invoke("global overview")
     sample_context = "\n\n".join(d.page_content for d in sample_docs)
 
-    llm = ChatOllama(model=model_name, temperature=0.2)
     prompt = PromptTemplate(
         template=(
             "Propose exactly ONE high-impact question a researcher should ask about this article.\n"
@@ -29,13 +28,12 @@ def generate_one_question(vs, model_name: str, k_context: int) -> str:
 
 if __name__ == "__main__":
     cfg = load_config()
-    model = cfg["models"]["llm"]
 
     vs = load_vectorstore()
-    qa = build_qa_chain(vs, model_name=model, k=cfg["retrieval"]["k"])
+    qa = build_qa_chain(vs, k=cfg["retrieval"]["k"])
 
     question = generate_one_question(
-        vs, model_name=model, k_context=cfg["generation"]["sample_k"]
+        vs, k_context=cfg["generation"]["sample_k"]
     )
     answer = qa.invoke(question).strip()
 
