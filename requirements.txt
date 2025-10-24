@@ -4,7 +4,21 @@ langchain-core==0.3.78
 langchain-community==0.3.30
 langchain-ollama==0.3.10
 langchain-text-splitters==0.3.11
-
+langchain-openai==0.1.1   # <-- Add this line
+# Vector database (Chroma)
+chromadb==1.1.0
+# Local LLM backend
+ollama==0.6.0
+# Document fetching & parsing
+requests==2.32.5
+beautifulsoup4==4.14.2
+lxml==6.0.2
+# Config / env
+PyYAML==6.0.3
+pydantic-settings==2.11.0
+python-dotenv==1.1.1
+# Utils
+tqdm==4.67.1
 # Vector database (Chroma)
 chromadb==1.1.0
 
